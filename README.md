@@ -16,9 +16,9 @@
 </p>
 
 <ul>
-  <li>ARH is <i>limited to only being able to display a hierarchy of records for the same type of object the component is placed on via a self-lookup relationship on that object.</i> It cannot be placed on an object of one type, then display a hierarchy of another object type that is not the object it was displayed on. For example, if a user wants to create an account org chart for every Salesforce account, they cannot place the ARH component on an account, then reference the account’s contacts to actually be displayed in the component’s hierarchy.</li>
+  <li>ARH is <i>limited to only being able to display a hierarchy of records for the same type of object the component is placed on via a self-lookup relationship on that object.</i> It cannot be placed on an object of one type, then display a hierarchy of another object type that is not the object it is displayed on. For example, if a user wants to create an account org chart for every Salesforce account, they cannot place the ARH component on an account, then reference the account’s contacts to actually be displayed in the component’s hierarchy.</li>
   <li>ARH <i>configuration records (which dictate which fields are shown in the hierarchy tiles and more) are stored in a front-end, non-deployable object,</i> as opposed to a back-end, deployable custom metadata type.</li>
-  <li>Metadata that makes up ARH does not have a consistent naming convention, making it difficult to track on what contributes to the ARH product’s functionality.</li>
+  <li>Metadata that makes up ARH <i>does not have a consistent naming convention,</i> making it difficult to track on what contributes to the ARH product’s functionality.</li>
   <li>Although responsive, adaptive, and visually clean, <i>ARH can be limited in its visual display of a record hierarchy,</i> i.e. it cannot visually indicate which child records have further child records, visually cueing a user into which hierarchy tiles they can drill down further into.</li>
 </ul>
 
@@ -28,12 +28,17 @@
 </p>
 
 <ul>
-  <li>Ability to configure the hierarchy component to <i>either</i>: 1) be placed on an object but display the hierarchy of a <i>different</i> object, or 2) be placed on an object and display the hierarchy of the <i>same</i> object.</li>
-  <li>Migration of front-end, hierarchy configuration object (previously called Configuration__c in ARH) to deployable, custom metadata type (CMT) (now called Hierarchy_Configuration__mdt).</li>
-  <li>Standardization of all hierarchy metadata names. All hierarchy-related metadata (apex classes, components, static resources, etc.) now begin with the prefix “hierarchy”.</li>
+  <li>Ability to configure the hierarchy component to <i>either</i>:
+    <ul>
+      <li>be placed on an object but display the hierarchy of a <i>different</i> object.</li>
+      <li>be placed on an object and display the hierarchy of the <i>same</i> object.</li>
+    </ul>
+  </li>
+  <li>Migration of front-end, hierarchy configuration object to deployable, custom metadata type (CMT).</li>
+  <li>Standardization of all hierarchy-related metadata names. All hierarchy-related metadata (apex classes, components, static resources, etc.) now begin with the prefix “hierarchy”.</li>
   <li>Ability to navigate down hierarchy tile, then click a button to reset back to the highest hierarchy tile.</li>
   <li>Ability to refresh the hierarchy component to pull most current data that feeds into the hierarchy.</li>
-  <li>Ability for the hierarchy component to listen for a cross-component communication event and refresh itself.</li>
+  <li>Ability for the hierarchy component to listen for a cross-component communication event and refresh itself when it receives an an event.</li>
 </ul>
 
 <p>
@@ -48,7 +53,7 @@
 
 <h2>Deployment and Configuration</h2>
 <p>
-  Deploy the following “Salesforce Visual Record Hierarchy” Metadata in the following order (listed by order of deployment to account for dependencies):
+  Deploy the following “Salesforce Visual Record Hierarchy” Metadata in the following order (listed in order of deployment to account for dependencies):
 </p>
 
 <ul>
@@ -97,34 +102,38 @@
 </ul>
 
 <p>
-  Perform the following post-manual modifications in the destination environment in the following order (listed by order of deployment to account for dependencies):
+  Perform the following post-manual modifications in the destination environment in the following order (listed in order of deployment to account for dependencies):
 </p>
 
 <ul>
   <li>Enable access for all applicable profiles (profiles of users who need to view the hierarchy component) to the “Hierarchy_Configuration__mdt” custom metadata type (CMT) object.</li>
   <li>Enable access to all apex classes for all applicable profiles.</li>
-  <li>Create a Hierarchy_Configuration__mdt CMT record to define a specific configuration for the appearance of the hierarchyBase component on an object’s lightning page.
+  <li>Create a Hierarchy_Configuration__mdt custom metadata type (CMT) record to define a specific configuration for the "hierarchyBase" component when it is placed on an object’s lightning page.
     <ul>
       <li>Two example CMT records have been included to demonstrate the two possible configuration types: different component object than hierarchy object, same component object as hierarchy object.</li>
     </ul>
   </li>
   <li>Create additional hierarchy configuration fields (if applicable):
     <ul>
-      <li>If the hierarchy component will be placed on an object that is <i>different</i> than the object that it will display a hierarchy for, create a new checkbox field on the object intended to be displayed with the API name “Hierarchy_Start_Record__c” (the label does not matter).
+      <li>If the hierarchy component will be placed on an object that is <i>different</i> than the object that it will display a hierarchy for, create a new checkbox field on the object intended to be displayed in the hierarchy with the API name “Hierarchy_Start_Record__c” (the label does not matter).
         <ul>
           <li>Mark this box true on the hierarchy object record that will appear first (highest) in the record hierarchy.</li>
         </ul>
       </li>
-      <li>If the hierarchy component will display customized CSS for each hierarchy tile that varies according to attributes (values) stored on the hierarchy tile record, create a new formula text field on the hierarchy object intended to be displayed in the hierarchy called “Hierarchy_Tile_Style__c”.
+      <li>If the hierarchy component should display customized CSS for each hierarchy tile that varies according to attributes (values) stored on the hierarchy object record, create a new formula text field on the object intended to be displayed in the hierarchy called “Hierarchy_Tile_Style__c”.
         <ul>
-          <li>CASE(Title__c, "CEO", "background-color: #b0d2b3;", "background-color: #fffff") </li>
+          <li>Example of a formula that could dictate the hierarchy tile CSS style is: CASE(Title__c, "CEO", "background-color: #b0d2b3;", "background-color: #fffff")</li>
         </ul>
       </li>
-      <li>If the hierarchy component will display an image as the hierarchy tile avatar (or a combo of image and abbreviation), create a new URL field on the hierarchy object intended to be displayed in the hierarchy called “Hierarchy_Avatar_Image_URL__c”.</li>
-      <li>If the hierarchy component will display a total count of the subordinate records under a hierarchy tile, create a new number field on the hierarchy object intended to be displayed in the hierarchy called “Hierarchy_Total_Subordinates__c” and populate it with the count of child records. To do this automatically, you can use a tool such as Declarative Lookup Rollup Summaries (DLRS).</li>
+      <li>If the hierarchy component will display an image as the hierarchy tile avatar (or a "combo" of an image and an abbreviation), create a new URL field on the object intended to be displayed in the hierarchy called “Hierarchy_Avatar_Image_URL__c”.
+        <ul>
+          <li>An example of an image that could used as the hierarchy avatar image has been included in the static resources: https://<i>[SalesforceEnvironment]</i>.force.com/resource/1706193353000/Hierarchy_Resources/star.png </li>
+        </ul>
+      </li>
+      <li>If the hierarchy component will display a total count of the subordinate records underneath a hierarchy tile, create a new number field on the object intended to be displayed in the hierarchy called “Hierarchy_Total_Subordinates__c” and populate it with the count of child records. To populate this count field automatically when a subordinate record is parented to another record, you could use a tool such as <a href="https://install.salesforce.org/products/dlrs/latest">Declarative Lookup Rollup Summaries (DLRS)</a>.</li>
     </ul>
   </li>
-  <li>If you created any of the above additional hierarchy configuration fields on the hierarchy object intended to be displayed in the hierarchy, revisit the Hierarchy_Configuration__mdt CMT record that was created earlier and update the corresponding configuration fields to point to these new fields:
+  <li>If you created any of the above additional hierarchy configuration fields on the object intended to be displayed in the hierarchy, revisit the Hierarchy_Configuration__mdt CMT record that was created earlier (or the example CMT records) and update the corresponding configuration fields to point to these new fields:
     <ul>
       <li>Subordinate Count Field = Hierarchy_Total_Subordinates__c</li>
       <li>Tile Style Field = Hierarchy_Tile_Style__c</li>
@@ -133,6 +142,18 @@
   </li>
   <li>On a lightning record page (flexipage) for the "Component Object" listed on the CMT record, place the "hierarchyBase" component on the page and select the appropriate CMT record under the “Select Configuration” property of the component. The component should display appropriately according to the configuration specifications of the CMT record.</li>
 </ul>
+
+<h2>Example of "Salesforce Visual Record Hierarchy"</h2>
+<p>
+  "HierarchyBase" component configured to display:
+</p>
+<ul>
+  <li>on a different component object than the hierarchy object.</li>
+  <li>customized CSS that color's a hierarchy tile based on the hierarchy tile contact's title.</li>
+  <li>a "combo" of abbreviations and images as the hierarchy tile avatar.</li>
+  <li>a total count of subordinate contacts that report to the hierarchy tile contact.</li>
+</ul>
+![image](https://github.com/tee-oh/SalesforceVisualRecordHierarchy/assets/43816466/f42a0cbc-dfb9-4ced-9d4b-6624fc003a37)
 
 
 
