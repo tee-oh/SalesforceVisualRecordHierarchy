@@ -51,7 +51,7 @@
   <li>Ability to display a combo of tile avatar image and a tile avatar field abbreviation within one hierarchy, as opposed to just one or the other.</li>
 </ul>
 
-<h2>Deployment and Configuration</h2>
+<h1>“Salesforce Visual Record Hierarchy” Deployment and Configuration</h1>
 <p>
   Deploy the following “Salesforce Visual Record Hierarchy” Metadata in the following order (listed in order of deployment to account for dependencies):
 </p>
@@ -143,7 +143,7 @@
   <li>On a lightning record page (flexipage) for the "Component Object" listed on the CMT record, place the "hierarchyBase" component on the page and select the appropriate CMT record under the “Select Configuration” property of the component. The component should display appropriately according to the configuration specifications of the CMT record.</li>
 </ul>
 
-<h2>Example of "Salesforce Visual Record Hierarchy"</h2>
+<h1>Examples of "Salesforce Visual Record Hierarchy"</h1>
 <p>
   "HierarchyBase" component configured to display:
 </p>
