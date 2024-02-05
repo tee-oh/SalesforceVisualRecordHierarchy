@@ -48,9 +48,9 @@
 </p>
 
 <ul>
-  <li>Ability to send in custom CSS to color hierarchy tiles based on attributes of each tile’s record.</li>
+  <li>Ability to send in custom CSS to color hierarchy tiles based on attributes of each hierarchy tile’s record.</li>
   <li>Ability to view how many total child records a hierarchy tile has to understand how to navigate the hierarchy better.</li>
-  <li>Ability to display a combo of tile avatar image and a tile avatar field abbreviation within one hierarchy, as opposed to just one or the other.</li>
+  <li>Ability to display a combo of images and abbreviations in the hierarchy tile avatars within one hierarchy, as opposed to just one or the other.</li>
 </ul>
 
 <h1>“Salesforce Visual Record Hierarchy” Deployment and Configuration</h1>
@@ -104,7 +104,7 @@
 </ul>
 
 <p>
-  Perform the following post-manual modifications in the destination environment in the following order (listed in order of deployment to account for dependencies):
+  Perform the following post-manual modifications in the destination environment in the following order (listed in order to account for dependencies):
 </p>
 
 <ul>
