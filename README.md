@@ -153,8 +153,8 @@
   <li>a "combo" of abbreviations and images as the hierarchy tile avatar.</li>
   <li>a total count of subordinate contacts that report to the hierarchy tile contact.</li>
 </ul>
-![image](https://github.com/tee-oh/SalesforceVisualRecordHierarchy/assets/43816466/f42a0cbc-dfb9-4ced-9d4b-6624fc003a37)
-
+<p></p>
+![ComponentObjDifferentThanHierarchyObj](https://github.com/tee-oh/SalesforceVisualRecordHierarchy/assets/43816466/0f75c356-f790-4b0d-9adc-7b72937a1bf0)
 
 
 
