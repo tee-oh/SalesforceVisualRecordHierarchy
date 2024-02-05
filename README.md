@@ -22,6 +22,8 @@
   <li>Although responsive, adaptive, and visually clean, <i>ARH can be limited in its visual display of a record hierarchy,</i> i.e. it cannot visually indicate which child records have further child records, visually cueing a user into which hierarchy tiles they can drill down further into.</li>
 </ul>
 
+<p><b>NOTE:</b> During the time I've been working with ARH, and in the enhanced version provided here, I've never been able to get the "view full hierarchy" functionality to work. In the original ARH demo video, its described that clicking on the "blue root node" will take the user into a "view full hierarchy" mode where the user will see down a chain of command from top to bottom. For me, no matter what I do, the "blue root node" always remains greyed-out and non-clickable.</p>
+
 <h2>Enhancements to ARH To Create "Salesforce Visual Record Hierarchy"</h2>
 <p>
   Technical Enhancements:
