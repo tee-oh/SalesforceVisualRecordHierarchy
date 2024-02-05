@@ -148,15 +148,27 @@
   "HierarchyBase" component configured to display:
 </p>
 <ul>
-  <li>on a different component object than the hierarchy object.</li>
-  <li>customized CSS that color's a hierarchy tile based on the hierarchy tile contact's title.</li>
-  <li>a "combo" of abbreviations and images as the hierarchy tile avatar.</li>
-  <li>a total count of subordinate contacts that report to the hierarchy tile contact.</li>
+  <li>on an object that is <i>different</i> than the hierarchy object.</li>
+  <li>with customized CSS that color's a hierarchy tile based on the hierarchy tile contact's title.</li>
+  <li>with a "combo" of abbreviations and images as the hierarchy tile avatars.</li>
+  <li>with a total count of subordinate contacts that report to the hierarchy tile contact.</li>
 </ul>
 <p></p>
-![ComponentObjDifferentThanHierarchyObj](https://github.com/tee-oh/SalesforceVisualRecordHierarchy/assets/43816466/0f75c356-f790-4b0d-9adc-7b72937a1bf0)
 
+<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ComponentObjDifferentThanHierarchyObj.JPG"/>
 
+<p>
+  "HierarchyBase" component configured to display:
+</p>
+<ul>
+  <li>on an object that is the <i>same</i> as the hierarchy object.</li>
+  <li>without any customized CSS (i.e. no background color) to style a hierarchy tile.</li>
+  <li>with only abbreviations as the hierarchy tile avatars.</li>
+  <li>without a total count of subordinate contacts that report to the hierarchy tile contact.</li>
+</ul>
+<p></p>
+
+<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ComponentObjSameAsHierarchyObj.JPG"/>
 
 
 
