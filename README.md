@@ -155,9 +155,10 @@
   <li>with a "combo" of abbreviations and images as the hierarchy tile avatars.</li>
   <li>with a total count of subordinate contacts that report to the hierarchy tile contact.</li>
 </ul>
-<p></p>
-
+</br>
 <img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ComponentObjDifferentThanHierarchyObj.JPG"/>
+</br>
+<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ConfigForObjDifferentThanHierarchyObj.JPG"/>
 
 <p>
   "HierarchyBase" component configured to display:
@@ -168,10 +169,10 @@
   <li>with only abbreviations as the hierarchy tile avatars.</li>
   <li>without a total count of subordinate contacts that report to the hierarchy tile contact.</li>
 </ul>
-<p></p>
-
+</br>
 <img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ComponentObjSameAsHierarchyObj.JPG"/>
-
+</br>
+<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ConfigForObjSameAsHierarchyObj.JPG"/>
 
 
 
