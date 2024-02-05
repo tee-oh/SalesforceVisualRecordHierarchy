@@ -1,0 +1,149 @@
+<template>
+	<div class={flexipageRegionWidth}>
+		<article class="slds-card hierarchyContainerMain">
+			<template lwc:if={configDataError}>
+				<div class="slds-card__body">
+					<c-hierarchy-error-illustration error-data={configDataError}></c-hierarchy-error-illustration>
+				</div>
+			</template>
+			<template lwc:else>
+				<!-- Begin Header -->
+				<div class="slds-card__header slds-grid">
+					<header class="header slds-media slds-media_center slds-has-flexi-truncate">
+						<div class="slds-media__figure">
+							<template lwc:if={showParents}>
+								<lightning-icon icon-name="standard:hierarchy" alternative-text="Record Hierarchy" title="Record Hierarchy"></lightning-icon>
+							</template>
+							<template lwc:else>
+								<lightning-icon icon-name="utility:back" alternative-text="Back" title="Back" size="small" onclick={handleShowParents}></lightning-icon>
+							</template>
+						</div>
+						<div class="slds-media__body">
+							<h2 class="slds-card__header-title" if:true={showParents}>
+								<span>{pageTitle}</span>
+							</h2>
+							<template if:false={showParents}>
+								<template if:true={hierarchyData}>
+									<template for:each={hierarchyData.currentRecord} for:item="record">
+										<div key={record.Id} class="current-record box">
+											<c-hierarchy-tile
+												metadata={configMetadata}
+												ref-obj-name-fields={refObjNameFields}
+												record={record}
+												visual-type={visualType}
+												mode="header"
+											></c-hierarchy-tile>
+										</div>
+									</template>
+								</template>
+							</template>
+						</div>
+						<div class="slds-no-flex" lwc:if={showParents}>
+							<span>
+								<span class="search-top">
+									<c-hierarchy-search search-object={hierarchyObject} display-field={searchDisplayField} onrecordselect={handleRecordSelect}></c-hierarchy-search>
+								</span>
+							</span>
+						</div>
+						<div>
+							<lightning-button class="slds-p-left_x-small" variant="neutral" name="reset" label="Reset" onclick={handleResetData}></lightning-button>
+						</div>
+						<div>
+							<button class="slds-button slds-button_icon slds-button_icon-more slds-m-left_x-small" title="Refresh" onclick={handleRefreshData}>
+								<svg class="slds-button__icon" aria-hidden="true">
+									<use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg?cache=9.28.0#refresh"></use>
+								</svg>
+							</button>
+						</div>
+					</header>
+				</div>
+				<!-- End Header -->
+				<!-- Begin Hierarchy -->
+				<div class="slds-card__body">
+					<div class="main-container" style="min-height: 350px;">
+						<div class="sub-container-1 slds-container_small" if:true={showParents}>
+							<span>
+								<span class="search">
+									<c-hierarchy-search search-object={hierarchyObject} display-field={searchDisplayField} onrecordselect={handleRecordSelect}></c-hierarchy-search
+								></span>
+							</span>
+						</div>
+						<template if:false={loaded}>
+							<lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+						</template>
+						<div class="sub-container-2">
+							<template if:false={allhierarchy}>
+								<template if:true={hierarchyData}>
+									<c-hierarchy-record-container-parent
+										if:true={showParents}
+										parent-records={hierarchyData.parentRecords}
+										current-record={hierarchyData.currentRecord}
+										left-peer-array={leftPeerArray}
+										right-peer-array={rightPeerArray}
+										config-info={configMetadata}
+										ref-obj-name-fields={refObjNameFields}
+										visual-type={visualType}
+										onrecordselect={handleRecordSelect}
+										device-size-actual={flexipageRegionWidth}
+										onloadpeers={loadPeers}
+										onshowhierarchy={showHierarchy}
+										element-width={elementWidth}
+									></c-hierarchy-record-container-parent>
+
+									<c-hierarchy-record-container-child
+										child-records={hierarchyData.childRecords}
+										config-info={configMetadata}
+										ref-obj-name-fields={refObjNameFields}
+										device-size={flexipageRegionWidth}
+										visual-type={visualType}
+										relation-field={relationField}
+										search-display-field={searchDisplayField}
+										parent-record-id={recordId}
+										object-api-name={hierarchyObject}
+										show-parent={showParents}
+										onrecordselect={handleRecordSelect}
+										onsetparentsvisible={handleParentVisibility}
+										onviewall={showMoreItems}
+									></c-hierarchy-record-container-child>
+
+									<template if:true={showViewAll}>
+										<c-hierarchy-view-all-child-records
+										child-records={hierarchyData.childRecords}
+										config-info={configMetadata}
+										ref-obj-name-fields={refObjNameFields}
+										device-size={flexipageRegionWidth}
+										visual-type={visualType}
+										relation-field={relationField}
+										search-display-field={searchDisplayField}
+										parent-record-id={recordId}
+										object-api-name={hierarchyObject}
+										onrecordselect={handleRecordSelect}
+										onsetparentsvisible={handleParentVisibility}
+										>
+										</c-hierarchy-view-all-child-records>
+									</template>
+								</template>
+							</template>
+							<template if:true={allhierarchy}>
+								<c-hierarchy-full-hierarchy
+									parent-records={parentHierarchy}
+									config-info={configMetadata}
+									ref-obj-name-fields={refObjNameFields}
+									device-size="MEDIUM"
+									visual-type={visualType}
+									onrecordselect={handleRecordSelect}
+									onbackhome={handleHomeEvent}
+									onshowhierarchy={showHierarchy}
+								></c-hierarchy-full-hierarchy>
+							</template>
+						</div>
+					</div>
+				</div>
+			</template>
+			<!-- End Hierarchy Body -->
+			<!-- Begin Footer -->
+			<footer class="slds-card__footer"></footer>
+			<!-- End Footer-->
+		</article>
+	</div>
+</template>

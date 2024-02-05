@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Account Org Chart Hierarchy</label>
+    <protected>false</protected>
+    <values>
+        <field>Abbreviation_Field__c</field>
+        <value xsi:type="xsd:string">Name</value>
+    </values>
+    <values>
+        <field>Component_Object__c</field>
+        <value xsi:type="xsd:string">Account</value>
+    </values>
+    <values>
+        <field>Detail_Field_1__c</field>
+        <value xsi:type="xsd:string">Name</value>
+    </values>
+    <values>
+        <field>Detail_Field_2__c</field>
+        <value xsi:type="xsd:string">Title</value>
+    </values>
+    <values>
+        <field>Detail_Field_3__c</field>
+        <value xsi:type="xsd:string">Email</value>
+    </values>
+    <values>
+        <field>Detail_Field_4__c</field>
+        <value xsi:type="xsd:string">Phone</value>
+    </values>
+    <values>
+        <field>Detail_Field_5__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Detail_Field_6__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Hierarchy_Location__c</field>
+        <value xsi:type="xsd:string">Component Object Different Than Hierarchy Object</value>
+    </values>
+    <values>
+        <field>Hierarchy_Object__c</field>
+        <value xsi:type="xsd:string">Contact</value>
+    </values>
+    <values>
+        <field>Record_Matching_Field__c</field>
+        <value xsi:type="xsd:string">AccountId</value>
+    </values>
+    <values>
+        <field>Relationship_Field__c</field>
+        <value xsi:type="xsd:string">ReportsToId</value>
+    </values>
+    <values>
+        <field>Search_Field__c</field>
+        <value xsi:type="xsd:string">Name</value>
+    </values>
+    <values>
+        <field>Subordinate_Count_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Tile_Style_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Visual_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Visual_Type__c</field>
+        <value xsi:type="xsd:string">Abbreviation</value>
+    </values>
+</CustomMetadata>

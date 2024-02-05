@@ -1,0 +1,122 @@
+<template>
+	<span class={containerClass}>
+		<template lwc:if={isShowLabel}>
+			<p title={fieldMetadata.label} class="slds-truncate labelClass">{fieldMetadata.label}</p>
+			<span class="slds-m-right_xx-small">&#58;</span>
+		</template>
+		<div class={valueClass} lwc:if={containsValue}>
+
+			<template lwc:if={isReference}>
+				<a 
+					data-referenceid={fieldData.value}
+					style="color: #1d62a9;"
+					herf="#"
+					onclick={navigateToRec}
+				>{fieldData.referenceValue}</a>
+			</template>
+
+			<template lwc:if={isCurrency}>
+				<lightning-formatted-number
+					value={fieldData.value}
+					format-style="currency"
+					minimum-fraction-digits={fieldMetadata.scale}
+					maximum-fraction-digits={fieldMetadata.scale}
+				></lightning-formatted-number>
+			</template>
+
+			<template lwc:if={isDouble}>
+				<lightning-formatted-number
+					value={fieldData.value}
+					minimum-fraction-digits={fieldMetadata.scale}
+					maximum-fraction-digits={fieldMetadata.scale}
+				></lightning-formatted-number>
+			</template>
+
+			<template lwc:if={isPercent}>
+				<lightning-formatted-number
+					value={fieldData.value}
+					format-style="percent"
+					minimum-fraction-digits={fieldMetadata.scale}
+					maximum-fraction-digits={fieldMetadata.scale}
+				></lightning-formatted-number>
+			</template>
+
+			<template lwc:if={isDate}>
+				<lightning-formatted-date-time
+					value={fieldData.value}
+					year="numeric"
+					month="numeric"
+					day="numeric"
+					time-zone="UTC"
+				></lightning-formatted-date-time>
+			</template>
+
+			<template lwc:if={isDateTime}>
+				<lightning-formatted-date-time
+					value={fieldData.value}
+					year="numeric"
+					month="numeric"
+					day="numeric"
+					hour="numeric"
+					minute="numeric"
+				></lightning-formatted-date-time>
+			</template>
+
+			<template lwc:if={isTime}>
+				<lightning-formatted-date-time
+					value={fieldData.value}
+					hour="2-digit"
+					minute="2-digit"
+					second="2-digit"
+					time-zone="UTC"
+				></lightning-formatted-date-time>
+			</template>
+
+			<template lwc:if={isBoolean}>
+				<lightning-input
+					type="checkbox"
+					checked={fieldData.value}
+					disabled
+				></lightning-input>
+			</template>
+
+			<template lwc:if={isPhone}>
+				<lightning-formatted-phone
+					value={fieldData.value}
+				></lightning-formatted-phone>
+			</template>
+
+			<template lwc:if={isEmail}>
+				<lightning-formatted-email
+					value={fieldData.value}
+					hide-icon
+				></lightning-formatted-email>
+			</template>
+
+			<template lwc:if={isURL}>
+				<lightning-formatted-url
+					value={fieldData.value}
+					target="_blank"
+				></lightning-formatted-url>
+			</template>
+
+			<template lwc:if={isLocation}>
+				<template lwc:if={fieldData.value}>
+					<lightning-formatted-location
+						latitude={fieldData.value.latitude}
+						longitude={fieldData.value.longitude}
+					></lightning-formatted-location>
+				</template>
+			</template>
+
+			<template lwc:if={isString}>
+				{fieldData.value}
+			</template>
+
+			<template lwc:if={isRichTextArea}>
+				<lightning-formatted-rich-text value={fieldData.value}></lightning-formatted-rich-text>
+			</template>
+
+		</div>
+	</span>
+  </template>

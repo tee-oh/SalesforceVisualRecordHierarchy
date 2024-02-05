@@ -1,0 +1,51 @@
+<template>
+	<div lwc:if={showParents} style="border: 1px solid rgb(145, 145, 145); margin: 0;">
+		<div class="slds-card__body slds-card__body_inner">
+			<template lwc:if={showSome}>
+				<div lwc:if={isChildRecords} class={deviceSize}>
+					<ul class="flex-container wrap">
+						<template for:each={childsToShow} for:item="record">
+							<li class="flex-item" key={record.Id}>
+								<c-hierarchy-tile
+									metadata={configInfo}
+									ref-obj-name-fields={refObjNameFields}
+									record={record}
+									device-size={deviceSize}
+									visual-type={visualType}
+									is-more-items={isDefaultItems}
+									onrecordclick={handleRecordClick}
+								></c-hierarchy-tile>
+							</li>
+						</template>
+					</ul>
+				</div>
+			</template>
+			<div if:false={isChildRecords} class="norecord-outerdiv">
+				<div class="norecord-innerdiv">
+					<span>No child records found!</span>
+				</div>
+			</div>
+		</div>
+		<template lwc:if={isMoreFlag}>
+			<div class="viewall">
+				<div class="norecord-innerdiv">
+					<span class="span-viewall" onclick={showMoreItems}>View all</span>
+				</div>
+			</div>
+		</template>
+	</div>
+	<!-- <template lwc:if={showViewAll}>
+		<c-hierarchy-view-all-child-records
+			child-records={childRecords}
+			config-info={configInfo}
+			ref-obj-name-fields={refObjNameFields}
+			device-size={flexipageRegionWidth}
+			visual-type={visualType}
+			relation-field={relationField}
+			search-display-field={searchDisplayField}
+			parent-record-id={parentRecordId}
+			object-api-name={objectApiName}
+			onrecordselect={handleRecordClick}
+		></c-hierarchy-view-all-child-records>
+	</template> -->
+  </template>

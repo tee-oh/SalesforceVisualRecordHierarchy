@@ -1,0 +1,13 @@
+<template>
+	<span class={deviceSize}>
+		<img lwc:if={_src} src={_src} onerror={handleImageError} alt={alternativeText} title={alternativeText}/>
+	</span>
+	<span class={deviceSize}>
+		<span lwc:if={showInitials} class="slds-avatar slds-avatar_circle avatarcircle">
+			<abbr class="slds-avatar__initials slds-avatar__initials_inverse" title={alternativeText}>{initials}</abbr>
+		</span>
+	</span>
+	<span lwc:if={showIcon} class={deviceSize}>
+		<img lwc:if={hierarchyNoImageFound} src={hierarchyNoImageFound} onerror={handleImageError} alt={alternativeText} title={alternativeText}/>
+	</span>
+</template>

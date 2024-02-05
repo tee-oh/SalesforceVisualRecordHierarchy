@@ -1,0 +1,116 @@
+<template>
+	<template if:false={isMoreItems}>
+		<div class={deviceSize}>
+			<div class="myItem" style={fieldData.tileStyleValue} onclick={selectRecord}>
+				<div class="outer-avatar">
+					<c-hierarchy-avatar if:true={visual.Abbreviation} initials={fieldData.avatarValue} device-size={deviceSize}></c-hierarchy-avatar>
+					<c-hierarchy-avatar if:true={visual.Combo} initials={fieldData.avatarValue} src={fieldData.avatarValue} device-size={deviceSize}></c-hierarchy-avatar>
+					<c-hierarchy-avatar if:true={visual.Image} src={fieldData.avatarValue} device-size={deviceSize}></c-hierarchy-avatar>
+				</div>
+				<div class="inlineItem marginLeft">
+					<span class="name">
+						<template if:true={metadata.Detail_Field_1__c}>
+							<c-hierarchy-field field-metadata={metadata.Detail_Field_1__c} field-data={fieldData.Detail_Field_1__c} device-size={deviceSize}></c-hierarchy-field>
+						</template>
+						<div class="content slds-col slds-size_5-of-12">
+							<section class="slds-popover slds-nubbin_bottom" style="min-height: 130px; width: var(--lwc-sizeSmall, 20rem);" role="dialog">
+								<div class="slds-popover__body">
+									<dl class="slds-popover__body-list">
+										<dt class="slds-m-bottom_small">
+											<div class="slds-media slds-media_center">
+												<div class="slds-media__figure">
+													<lightning-icon icon-name="standard:hierarchy" alternative-text="Record Hierarchy" title="Record Hierarchy" size="small"></lightning-icon>
+												</div>
+												<div class="slds-media__body">
+													<p class="slds-text-heading_small slds-hyphenate slds-truncate">
+													<template if:true={metadata.Detail_Field_1__c}>
+														<div class="slds-truncate">
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_1__c} field-data={fieldData.Detail_Field_1__c} device-size={deviceSize}></c-hierarchy-field>
+														</div>
+													</template>
+													</p>
+												</div>
+											</div>
+										</dt>
+										<dd class="slds-m-top_x-small">
+											<div class="inlineItem marginLeft">
+												<span class="title">
+													<template if:true={metadata.Detail_Field_2__c}>
+														<div>
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_2__c} field-data={fieldData.Detail_Field_2__c} device-size={deviceSize} variant="show-label"></c-hierarchy-field>
+														</div>
+													</template>
+													<template if:true={metadata.Detail_Field_3__c}>
+														<div>
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_3__c} field-data={fieldData.Detail_Field_3__c} device-size={deviceSize} variant="show-label"></c-hierarchy-field>
+														</div>
+													</template>
+													<template if:true={metadata.Detail_Field_4__c}>
+														<div>
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_4__c} field-data={fieldData.Detail_Field_4__c} device-size={deviceSize} variant="show-label"></c-hierarchy-field>
+														</div>
+													</template>
+													<template if:true={metadata.Detail_Field_5__c}>
+														<div>
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_5__c} field-data={fieldData.Detail_Field_5__c} device-size={deviceSize} variant="show-label"></c-hierarchy-field>
+														</div>
+													</template>
+													<template if:true={metadata.Detail_Field_6__c}>
+														<div>
+															<c-hierarchy-field field-metadata={metadata.Detail_Field_6__c} field-data={fieldData.Detail_Field_6__c} device-size={deviceSize} variant="show-label"></c-hierarchy-field>
+														</div>
+													</template>
+												</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</section>
+						</div>
+					</span>
+					<span class="title">
+						<template if:true={metadata.Detail_Field_2__c}>
+							<div>
+								<c-hierarchy-field field-metadata={metadata.Detail_Field_2__c} field-data={fieldData.Detail_Field_2__c} device-size={deviceSize}></c-hierarchy-field>
+							</div>
+						</template>
+						<template if:true={isCurrentRecord}>
+							<template if:true={metadata.Detail_Field_3__c}>
+								<div>
+									<c-hierarchy-field field-metadata={metadata.Detail_Field_3__c} field-data={fieldData.Detail_Field_3__c} device-size={deviceSize}></c-hierarchy-field>
+								</div>
+							</template>
+							<template if:true={metadata.Detail_Field_4__c}>
+								<div>
+									<c-hierarchy-field field-metadata={metadata.Detail_Field_4__c} field-data={fieldData.Detail_Field_4__c} device-size={deviceSize}></c-hierarchy-field>
+								</div>
+							</template>
+							<template if:true={metadata.Detail_Field_5__c}>
+								<div>
+									<c-hierarchy-field field-metadata={metadata.Detail_Field_5__c} field-data={fieldData.Detail_Field_5__c} device-size={deviceSize}></c-hierarchy-field>
+								</div>
+							</template>
+							<template if:true={metadata.Detail_Field_6__c}>
+								<div>
+									<c-hierarchy-field field-metadata={metadata.Detail_Field_6__c} field-data={fieldData.Detail_Field_6__c} device-size={deviceSize}></c-hierarchy-field>
+								</div>
+							</template>
+						</template>
+					</span>
+				</div>
+				<template if:true={fieldData.showSubordinateCount}>
+					<div class="slds-align_absolute-center">
+						<span class="subordinates-count">
+							<p class="slds-p-around_xx-small" style="color: white;">{fieldData.subOrdinateCount}</p>
+						</span>
+					</div>
+				</template>
+			</div>
+			<div class="small-content">
+				<div>
+					<c-hierarchy-field field-metadata={metadata.Detail_Field_1__c} field-data={fieldData.Detail_Field_1__c} device-size={deviceSize}></c-hierarchy-field>
+				</div>
+			</div>
+		</div>
+	</template>
+</template>
