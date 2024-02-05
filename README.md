@@ -5,9 +5,9 @@
 </p>
 
 <ul>
-<li><b>ARH AppExchange Package:</b> https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000G12hNUAR</li>
-<li><b>ARH Source Code:</b> https://github.com/SalesforceLabs/AnyRecordHierarchy</li>
-<li><b>ARH Setup Guide:</b> https://salesforce.quip.com/US6zAozquu7g</li>
+<li>ARH AppExchange Package: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000G12hNUAR</li>
+<li>ARH Source Code: https://github.com/SalesforceLabs/AnyRecordHierarchy</li>
+<li>ARH Setup Guide: https://salesforce.quip.com/US6zAozquu7g</li>
 </ul>
 
 <h2>Current Limitations of ARH <i>(as of Feb 2024)</i></h2>
