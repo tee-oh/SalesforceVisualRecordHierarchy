@@ -172,7 +172,7 @@
 </br>
 <img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ComponentObjSameAsHierarchyObj.JPG"/>
 </br>
-<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ConfigForObjSameAsHierarchyObj.JPG"/>
+<img src="https://raw.githubusercontent.com/tee-oh/SalesforceVisualRecordHierarchy/main/images/ConfigForSameCmpObjAsHierarcyObj.JPG"/>
 
 
 
