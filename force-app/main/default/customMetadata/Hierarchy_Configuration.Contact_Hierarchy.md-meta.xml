@@ -44,7 +44,7 @@
     </values>
     <values>
         <field>Record_Matching_Field__c</field>
-        <value xsi:type="xsd:string">test</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Relationship_Field__c</field>
