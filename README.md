@@ -104,7 +104,7 @@
 </ul>
 
 <p>
-  Perform the following post-manual modifications in the destination environment in the following order (listed in order to account for dependencies):
+  Perform the following post-deployment manual modifications in the destination environment in the following order (listed in order to account for dependencies):
 </p>
 
 <ul>
