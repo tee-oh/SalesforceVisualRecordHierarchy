@@ -142,7 +142,13 @@
       <li>Visual Field = Hierarchy_Avatar_Image_URL__c</li>
     </ul>
   </li>
-  <li>On a lightning record page (flexipage) for the "Component Object" listed on the CMT record, place the "hierarchyBase" component on the page and select the appropriate CMT record under the “Select Configuration” property of the component. The component should display appropriately according to the configuration specifications of the CMT record.</li>
+  <li>On the lightning record page (flexipage) for the "Component Object" listed on the CMT record:
+    <ul>
+      <li>place the "hierarchyBase" component on the lightning page</li>
+      <li>set an appropriate title for the component in the “Title” property of the component</li>
+      <li>select the appropriate CMT record under the “Select Configuration” property of the component</li>
+    </ul>
+  </li>
 </ul>
 
 <h1>Examples of "Salesforce Visual Record Hierarchy"</h1>
